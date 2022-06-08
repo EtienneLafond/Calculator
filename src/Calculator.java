@@ -20,18 +20,30 @@ public class Calculator {
 
         // Do stuff
         value1 = in.nextDouble();
-        value2 = in.nextDouble();
         operation = in.next();
 
-        // Chooses the right method for the selected operation
-        switch (operation) {
-            case "add" -> result = addition(value1, value2);
-            case "sub" -> result = subtraction(value1, value2);
-            case "mul" -> result = multiplication(value1, value2);
-            case "div" -> result = division(value1, value2);
+        // Check if the operation "equal" after the first value
+        if (operation.equals("equal")) {
+            result = value1;
         }
-        //add stuff
 
+        // Keep taking input until it receives the operation "equal"
+        while (!operation.equals("equal")) {
+            // Get second input
+            value2 = in.nextDouble();
+
+            // Chooses the right method for the selected operation
+            switch (operation) {
+                case "add" -> result = addition(value1, value2);
+                case "sub" -> result = subtraction(value1, value2);
+                case "mul" -> result = multiplication(value1, value2);
+                case "div" -> result = division(value1, value2);
+                case "mod" -> result = modulo(value1, value2);
+            }
+
+            value1 = result;
+            operation = in.next();
+        }
         // Print result
         System.out.println(result);
     }
@@ -54,5 +66,10 @@ public class Calculator {
     // Division
     public static double division(double value1, double value2) {
         return value1 / value2;
+    }
+
+    // Modulo
+    public static double modulo(double value1, double value2) {
+        return value1 % value2;
     }
 }
