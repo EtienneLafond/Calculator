@@ -30,6 +30,7 @@ public class Calculator {
             case "mul" -> result = multiplication(value1, value2);
             case "div" -> result = division(value1, value2);
         }
+        //add stuff
 
         // Print result
         System.out.println(result);
